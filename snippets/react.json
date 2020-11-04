@@ -1,0 +1,13 @@
+{
+  "reactFunctionComponent": {
+    "body": [
+      "const {Subject} = (props) => {",
+      "return (",
+      "\t<div>",
+      "\t\t<h1>{Subject}</h1>",
+      "\t</div>",
+      ")",
+      "}"
+    ]
+  }
+}
