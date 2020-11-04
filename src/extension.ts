@@ -4,7 +4,8 @@ import { newComponent } from "./commands";
 
 
 export function activate(context: ExtensionContext) {
-	context.subscriptions.push(commands.registerCommand('code-provider.genFuncComp', newComponent));
+	context.subscriptions.push(commands.registerCommand('code-provider.genFuncComp', (uri) => newComponent(uri, 'functional')));
+	context.subscriptions.push(commands.registerCommand('code-provider.genClassComp', (uri) => newComponent(uri, 'class')));
 }
 
 export function deactivate() { }

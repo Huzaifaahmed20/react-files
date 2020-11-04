@@ -1,10 +1,10 @@
 import * as _ from "lodash";
-import { InputBoxOptions, Uri, window, commands, ExtensionContext } from "vscode";
-import { existsSync, lstatSync, writeFile } from "fs";
+import { InputBoxOptions, Uri, window } from "vscode";
+import { existsSync, writeFile } from "fs";
 import * as mkdirp from "mkdirp";
-import { getComponentTemplate } from "../templates";
+import { getClassComponentTemplate, getComponentTemplate } from "../templates";
 
-export const newComponent = async (uri: Uri) => {
+export const newComponent = async (uri: Uri, type: string) => {
 
     const componentName = await promptForComponentName();
     if (_.isNil(componentName) || componentName.trim() === "") {
@@ -13,7 +13,7 @@ export const newComponent = async (uri: Uri) => {
     }
 
     let targetDirectory = uri.fsPath;
-    await generateComponentCode(componentName, targetDirectory);
+    await generateComponentCode(componentName, targetDirectory, type);
 };
 
 function promptForComponentName(): Thenable<string | undefined> {
@@ -25,7 +25,7 @@ function promptForComponentName(): Thenable<string | undefined> {
     return window.showInputBox(componentNameOptions);
 }
 
-const generateComponentCode = async (componentName: string, targetDirectory: string) => {
+const generateComponentCode = async (componentName: string, targetDirectory: string, type: string) => {
     const componentDirectoryPath = `${targetDirectory}/${componentName}`;
 
     if (!existsSync(componentDirectoryPath)) {
@@ -39,7 +39,7 @@ const generateComponentCode = async (componentName: string, targetDirectory: str
     return new Promise(async (resolve, reject) => {
         writeFile(
             targetPath,
-            getComponentTemplate(componentName),
+            type === 'class' ? getClassComponentTemplate(componentName) : getComponentTemplate(componentName),
             "utf8",
             (error) => {
                 if (error) {

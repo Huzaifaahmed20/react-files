@@ -1,1 +1,2 @@
-export * from './component-template';
+export * from './functional-component-template';
+export * from './class-component-template';

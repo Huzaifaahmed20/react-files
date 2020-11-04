@@ -18,12 +18,21 @@
       {
         "command": "code-provider.genFuncComp",
         "title": "Generate Functional Component"
+      },
+      {
+        "command": "code-provider.genClassComp",
+        "title": "Generate Class Component"
       }
     ],
     "menus": {
       "explorer/context": [
         {
           "command": "code-provider.genFuncComp",
+          "group": "1_modification",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "code-provider.genClassComp",
           "group": "1_modification",
           "when": "explorerResourceIsFolder"
         }
