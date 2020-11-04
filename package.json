@@ -17,7 +17,7 @@
     "commands": [
       {
         "command": "code-provider.genFuncComp",
-        "title": "Generate Fcuntional Component"
+        "title": "Generate Functional Component"
       }
     ],
     "menus": {
@@ -28,13 +28,7 @@
           "when": "explorerResourceIsFolder"
         }
       ]
-    },
-    "snippets": [
-      {
-        "language": "javascript",
-        "path": "./snippets/react.json"
-      }
-    ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
