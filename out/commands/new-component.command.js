@@ -16,13 +16,21 @@ const fs_1 = require("fs");
 const mkdirp = require("mkdirp");
 const templates_1 = require("../templates");
 exports.newComponent = (uri, type) => __awaiter(void 0, void 0, void 0, function* () {
-    const componentName = yield promptForComponentName();
-    if (_.isNil(componentName) || componentName.trim() === "") {
-        vscode_1.window.showErrorMessage("The component name must not be empty");
-        return;
-    }
     let targetDirectory = uri.fsPath;
-    yield generateComponentCode(componentName, targetDirectory, type);
+    const isComponents = targetDirectory.endsWith('components') || targetDirectory.endsWith('component');
+    const isPages = targetDirectory.endsWith('pages') || targetDirectory.endsWith('screens');
+    const isValidDirectory = isComponents || isPages;
+    if (isValidDirectory) {
+        const componentName = yield promptForComponentName();
+        if (_.isNil(componentName) || componentName.trim() === "") {
+            vscode_1.window.showErrorMessage("The component name must not be empty");
+            return;
+        }
+        yield generateComponentCode(componentName, targetDirectory, type);
+    }
+    else {
+        vscode_1.window.showErrorMessage('Make sure you\'re in correct directory');
+    }
 });
 function promptForComponentName() {
     const componentNameOptions = {

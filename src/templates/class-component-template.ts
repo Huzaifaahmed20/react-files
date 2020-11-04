@@ -14,11 +14,3 @@ class ${componentName} extends Component{
 export default ${componentName};
 `;
 };
-
-// class TestComp extends Component {
-//     render() {
-//         return (
-
-//     )
-//     }
-// }

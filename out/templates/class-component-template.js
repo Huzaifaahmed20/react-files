@@ -16,10 +16,4 @@ class ${componentName} extends Component{
 export default ${componentName};
 `;
 };
-// class TestComp extends Component {
-//     render() {
-//         return (
-//     )
-//     }
-// }
 //# sourceMappingURL=class-component-template.js.map

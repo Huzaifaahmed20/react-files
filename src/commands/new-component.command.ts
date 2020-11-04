@@ -5,15 +5,23 @@ import * as mkdirp from "mkdirp";
 import { getClassComponentTemplate, getComponentTemplate } from "../templates";
 
 export const newComponent = async (uri: Uri, type: string) => {
+    let targetDirectory = uri.fsPath;
+    const isComponents = targetDirectory.endsWith('components') || targetDirectory.endsWith('component');
+    const isPages = targetDirectory.endsWith('pages') || targetDirectory.endsWith('screens');
+    const isValidDirectory = isComponents || isPages;
 
-    const componentName = await promptForComponentName();
-    if (_.isNil(componentName) || componentName.trim() === "") {
-        window.showErrorMessage("The component name must not be empty");
-        return;
+    if (isValidDirectory) {
+        const componentName = await promptForComponentName();
+        if (_.isNil(componentName) || componentName.trim() === "") {
+            window.showErrorMessage("The component name must not be empty");
+            return;
+        }
+        await generateComponentCode(componentName, targetDirectory, type);
+    } else {
+        window.showErrorMessage('Make sure you\'re in correct directory');
     }
 
-    let targetDirectory = uri.fsPath;
-    await generateComponentCode(componentName, targetDirectory, type);
+
 };
 
 function promptForComponentName(): Thenable<string | undefined> {
