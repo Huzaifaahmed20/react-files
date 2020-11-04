@@ -1,9 +1,7 @@
 import * as _ from "lodash";
-import * as changeCase from "change-case";
-import { InputBoxOptions, OpenDialogOptions, Uri, window, commands, ExtensionContext } from "vscode";
+import { InputBoxOptions, Uri, window, commands, ExtensionContext } from "vscode";
 import { existsSync, lstatSync, writeFile } from "fs";
 import * as mkdirp from "mkdirp";
-import { Options } from "change-case";
 
 
 export function activate(context: ExtensionContext) {
@@ -50,7 +48,7 @@ const generateComponentCode = async (componentName: string, targetDirectory: str
 	return new Promise(async (resolve, reject) => {
 		writeFile(
 			targetPath,
-			getDefaultBlocEventTemplate(componentName),
+			getComponentTemplate(componentName),
 			"utf8",
 			(error) => {
 				if (error) {
@@ -63,19 +61,24 @@ const generateComponentCode = async (componentName: string, targetDirectory: str
 	});
 };
 
-function getDefaultBlocEventTemplate(blocName: string): string {
+function getComponentTemplate(componentName: string): string {
 
-	// 	return `part of '${snakeCaseBlocName}_bloc.dart';
+	return `import React from 'react';
 
-	// @immutable
-	// abstract class Event {}
-	// `;
-	return '';
+export const ${componentName} = (props) => {
+	return (
+		<div>
+			<h1>${componentName}</h1>
+		</div>
+	)
+}
+`;
 }
 
 function createDirectory(targetDirectory: string): Promise<void> {
 	return new Promise((resolve, reject) => {
 		mkdirp(targetDirectory);
+		resolve();
 	});
 }
 

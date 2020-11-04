@@ -45,7 +45,7 @@ const generateComponentCode = (componentName, targetDirectory) => __awaiter(void
     }
     const targetPath = `${componentDirectoryPath}/index.js`;
     return new Promise((resolve, reject) => __awaiter(void 0, void 0, void 0, function* () {
-        fs_1.writeFile(targetPath, getDefaultBlocEventTemplate(componentName), "utf8", (error) => {
+        fs_1.writeFile(targetPath, getComponentTemplate(componentName), "utf8", (error) => {
             if (error) {
                 reject(error);
                 return;
@@ -54,16 +54,22 @@ const generateComponentCode = (componentName, targetDirectory) => __awaiter(void
         });
     }));
 });
-function getDefaultBlocEventTemplate(blocName) {
-    // 	return `part of '${snakeCaseBlocName}_bloc.dart';
-    // @immutable
-    // abstract class Event {}
-    // `;
-    return '';
+function getComponentTemplate(componentName) {
+    return `import React from 'react';
+
+export const ${componentName} = (props) => {
+	return (
+		<div>
+			<h1>${componentName}</h1>
+		</div>
+	)
+}
+`;
 }
 function createDirectory(targetDirectory) {
     return new Promise((resolve, reject) => {
         mkdirp(targetDirectory);
+        resolve();
     });
 }
 function deactivate() { }
