@@ -1,7 +1,7 @@
 {
-  "name": "code-provider",
-  "displayName": "code provider",
-  "description": "code provider for react and node",
+  "name": "react-provider",
+  "displayName": "React Provider",
+  "description": "Generate class and functional React components in just one click",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.50.0"
@@ -10,29 +10,29 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:code-provider.genFuncComp"
+    "onCommand:react-provider.genFuncComp"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "code-provider.genFuncComp",
+        "command": "react-provider.genFuncComp",
         "title": "Generate Functional Component"
       },
       {
-        "command": "code-provider.genClassComp",
+        "command": "react-provider.genClassComp",
         "title": "Generate Class Component"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "command": "code-provider.genFuncComp",
+          "command": "react-provider.genFuncComp",
           "group": "1_modification",
           "when": "explorerResourceIsFolder"
         },
         {
-          "command": "code-provider.genClassComp",
+          "command": "react-provider.genClassComp",
           "group": "1_modification",
           "when": "explorerResourceIsFolder"
         }

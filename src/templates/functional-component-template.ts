@@ -1,6 +1,6 @@
 export const getComponentTemplate = (componentName: string): string => {
 
-    return `import React from 'react';
+	return `import React from 'react';
 
 export const ${componentName} = (props) => {
 	return (
