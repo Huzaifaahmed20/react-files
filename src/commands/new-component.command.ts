@@ -1,7 +1,6 @@
 import * as _ from "lodash";
 import { InputBoxOptions, Uri, window } from "vscode";
-import { existsSync, writeFile } from "fs";
-import * as mkdirp from "mkdirp";
+import { existsSync, mkdir, mkdirSync, writeFile } from "fs";
 import { getClassComponentTemplate, getComponentTemplate } from "../templates";
 
 export const newComponent = async (uri: Uri, type: string) => {
@@ -64,7 +63,12 @@ const generateComponentCode = async (componentName: string, targetDirectory: str
 
 function createDirectory(targetDirectory: string): Promise<void> {
     return new Promise((resolve, reject) => {
-        mkdirp(targetDirectory);
-        resolve();
+        try {
+            mkdirSync(targetDirectory, { recursive: true });
+            resolve();
+
+        } catch (e) {
+            reject(e);
+        }
     });
 }

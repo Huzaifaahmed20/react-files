@@ -13,7 +13,6 @@ exports.newComponent = void 0;
 const _ = require("lodash");
 const vscode_1 = require("vscode");
 const fs_1 = require("fs");
-const mkdirp = require("mkdirp");
 const templates_1 = require("../templates");
 exports.newComponent = (uri, type) => __awaiter(void 0, void 0, void 0, function* () {
     let targetDirectory = uri.fsPath;
@@ -60,8 +59,13 @@ const generateComponentCode = (componentName, targetDirectory, type) => __awaite
 });
 function createDirectory(targetDirectory) {
     return new Promise((resolve, reject) => {
-        mkdirp(targetDirectory);
-        resolve();
+        try {
+            fs_1.mkdirSync(targetDirectory, { recursive: true });
+            resolve();
+        }
+        catch (e) {
+            reject(e);
+        }
     });
 }
 //# sourceMappingURL=new-component.command.js.map
