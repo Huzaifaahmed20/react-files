@@ -8,7 +8,7 @@
     "type": "git",
     "url": "https://github.com/Huzaifaahmed20/Code-Provider"
   },
-  "version": "0.2.0",
+  "version": "0.0.8",
   "github": "https://github.com/Huzaifaahmed20",
   "engines": {
     "vscode": "^1.50.0"
@@ -18,7 +18,11 @@
   ],
   "activationEvents": [
     "onCommand:react-provider.genFuncComp",
-    "onCommand:react-provider.genClassComp"
+    "onCommand:react-provider.genClassComp",
+    "onStartupFinished:react-provider.genFuncComp",
+    "onStartupFinished:react-provider.genClassComp",
+    "*:react-provider.genFuncComp",
+    "*:react-provider.genClassComp"
   ],
   "main": "./out/extension.js",
   "contributes": {
