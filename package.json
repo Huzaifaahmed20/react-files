@@ -1,12 +1,12 @@
 {
   "name": "react-provider",
-  "displayName": "React Provider",
+  "displayName": "React Files",
   "description": "Generate class and functional React components in just one click",
   "publisher": "Huzaifa-Ahmed",
   "icon": "icon/logo.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Huzaifaahmed20/Code-Provider"
+    "url": "https://github.com/Huzaifaahmed20/react-files"
   },
   "version": "0.0.5",
   "github": "https://github.com/Huzaifaahmed20",
