@@ -7,9 +7,9 @@
 
 ![Banner](https://github.com/Huzaifaahmed20/react-files/blob/master/assets/banner.jpg)
 
-<!-- ## Demo
+## Demo
 
-![Demo](react-files.gif) -->
+![Demo](https://github.com/Huzaifaahmed20/react-files/blob/master/assets/react-files-demo.gif) -->
 
 ## Extension Settings
 
