@@ -5,11 +5,11 @@
 - Generate class components.
 - Generate functional components.
 
-![Banner](https://github.com/Huzaifaahmed20/react-files/blob/master/assets/banner.jpg)
+![Banner](https://github.com/Huzaifaahmed20/react-files/blob/master/assets/banner.jpg?raw=true)
 
 ## Demo
 
-![Demo](https://github.com/Huzaifaahmed20/react-files/blob/master/assets/react-files-demo.gif) -->
+![Demo](https://github.com/Huzaifaahmed20/react-files/blob/master/assets/react-files-demo.gif?raw=true)
 
 ## Extension Settings
 
@@ -25,12 +25,12 @@ This extension contributes the following settings:
 
 ## Release Notes
 
-### 0.0.7
+### 0.0.1
 
-Initial release, with updated README
+Initial release
 
-### 0.0.8
+### 0.0.2
 
-added demo in readme
+Added demo
 
 **Enjoy!**
