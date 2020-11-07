@@ -5,8 +5,8 @@ import { newComponent } from "./commands";
 
 export function activate(context: ExtensionContext) {
 	context.subscriptions.push(
-		commands.registerCommand('react-provider.genFuncComp', (uri) => newComponent(uri, 'functional')),
-		commands.registerCommand('react-provider.genClassComp', (uri) => newComponent(uri, 'class'))
+		commands.registerCommand('react-files.genFuncComp', (uri) => newComponent(uri, 'functional')),
+		commands.registerCommand('react-files.genClassComp', (uri) => newComponent(uri, 'class'))
 	);
 }
 

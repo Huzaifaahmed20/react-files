@@ -1,9 +1,9 @@
 {
-  "name": "react-provider",
+  "name": "react-files",
   "displayName": "React Files",
   "description": "Generate class and functional React components in just one click",
   "publisher": "Huzaifa-Ahmed",
-  "icon": "icon/logo.png",
+  "icon": "assets/logo.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/Huzaifaahmed20/react-files"
@@ -17,34 +17,34 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:react-provider.genFuncComp",
-    "onCommand:react-provider.genClassComp",
-    "onStartupFinished:react-provider.genFuncComp",
-    "onStartupFinished:react-provider.genClassComp",
-    "*:react-provider.genFuncComp",
-    "*:react-provider.genClassComp"
+    "onCommand:react-files.genFuncComp",
+    "onCommand:react-files.genClassComp",
+    "onStartupFinished:react-files.genFuncComp",
+    "onStartupFinished:react-files.genClassComp",
+    "*:react-files.genFuncComp",
+    "*:react-files.genClassComp"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "react-provider.genFuncComp",
+        "command": "react-files.genFuncComp",
         "title": "Generate Functional Component"
       },
       {
-        "command": "react-provider.genClassComp",
+        "command": "react-files.genClassComp",
         "title": "Generate Class Component"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "command": "react-provider.genFuncComp",
+          "command": "react-files.genFuncComp",
           "group": "1_modification",
           "when": "explorerResourceIsFolder"
         },
         {
-          "command": "react-provider.genClassComp",
+          "command": "react-files.genClassComp",
           "group": "1_modification",
           "when": "explorerResourceIsFolder"
         }
