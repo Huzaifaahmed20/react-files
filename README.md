@@ -9,7 +9,7 @@
 
 ## Demo
 
-![Demo](https://github.com/Huzaifaahmed20/react-files/blob/master/assets/react-files-demo.gif?raw=true)
+![Demo](https://github.com/Huzaifaahmed20/react-files/blob/master/assets/react-files.gif?raw=true)
 
 ## Extension Settings
 
