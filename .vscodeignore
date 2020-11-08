@@ -1,4 +1,6 @@
 .vscode/**
+node_modules
+out/
 .vscode-test/**
 out/test/**
 src/**
@@ -9,3 +11,4 @@ vsc-extension-quickstart.md
 **/.eslintrc.json
 **/*.map
 **/*.ts
+
