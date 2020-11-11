@@ -17,14 +17,9 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:react-files.genFuncComp",
-    "onCommand:react-files.genClassComp",
-    "onStartupFinished:react-files.genFuncComp",
-    "onStartupFinished:react-files.genClassComp",
-    "*:react-files.genFuncComp",
-    "*:react-files.genClassComp"
+    "*"
   ],
-  "main": "./out/extension.js",
+  "main": "./outputs/extension.js",
   "contributes": {
     "commands": [
       {
