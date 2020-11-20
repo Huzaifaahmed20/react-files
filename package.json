@@ -14,7 +14,15 @@
     "vscode": "^1.50.0"
   },
   "categories": [
-    "Other"
+    "Programming Languages",
+    "Snippets"
+  ],
+  "keywords": [
+    "javascript",
+    "reactjs",
+    "typescript",
+    "react extension",
+    "snippets"
   ],
   "activationEvents": [
     "*"
