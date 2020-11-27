@@ -18,11 +18,6 @@ This extension contributes the following settings:
 - `react-files.genFuncComp`: Generate functional component
 - `react-files.genClassComp`: Generate class component
 
-## Features to be implment
-
-- Detect environemt either JS or TS.
-- Create styles file either css or scss.
-
 ## Release Notes
 
 ### 0.0.1
