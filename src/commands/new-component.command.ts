@@ -9,21 +9,30 @@ export const newComponent = async (uri: Uri, type: string, withCSS: boolean) => 
     const isComponents = targetDirectory.endsWith('components');
     const isPages = targetDirectory.endsWith('pages') || targetDirectory.endsWith('screens');
     const isValidDirectory = isComponents || isPages;
-
+    var styleType: string | undefined = '';
     if (isValidDirectory) {
         const componentName = await promptForComponentName();
         if (_.isNil(componentName) || componentName.trim() === "") {
             window.showErrorMessage("The component name must not be empty");
             return;
         }
-        await generateComponentCode(componentName, targetDirectory, type, withCSS);
+        if (withCSS) {
+            styleType = await showStyleOptions();
+            if (_.isNil(styleType)) {
+                window.showErrorMessage('Please select style file type');
+            }
+        }
+        await generateComponentCode(componentName, targetDirectory, type, withCSS, styleType);
     } else {
         window.showErrorMessage('Make sure you right click on component, pages or screens directory');
     }
 
-
 };
 
+async function showStyleOptions(): Promise<string | undefined> {
+    const styleType = await window.showQuickPick(['css', 'less', 'scss'], { canPickMany: false });
+    return styleType;
+}
 
 
 function promptForComponentName(): Thenable<string | undefined> {
@@ -35,7 +44,7 @@ function promptForComponentName(): Thenable<string | undefined> {
     return window.showInputBox(componentNameOptions);
 }
 
-const generateComponentCode = async (componentName: string, targetDirectory: string, type: string, withCSS: boolean) => {
+const generateComponentCode = async (componentName: string, targetDirectory: string, type: string, withCSS: boolean, styleType: string | undefined) => {
     const componentDirectoryPath = `${targetDirectory}/${componentName}`;
     const rootOfProject = join(componentDirectoryPath, '../../../');
     const projectFiles = readdirSync(rootOfProject);
@@ -50,7 +59,7 @@ const generateComponentCode = async (componentName: string, targetDirectory: str
     }
 
     if (withCSS) {
-        const targetPathCSS = `${componentDirectoryPath}/style.css`;
+        const targetPathCSS = `${componentDirectoryPath}/style.${styleType}`;
         await writeCSSFile(targetPathCSS);
     }
 

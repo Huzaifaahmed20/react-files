@@ -40,11 +40,11 @@
       },
       {
         "command": "react-files.genFuncCompCSS",
-        "title": "Generate Functional Component (With CSS)"
+        "title": "Generate Functional Component (With Style)"
       },
       {
         "command": "react-files.genClassCompCSS",
-        "title": "Generate Class Component (With CSS)"
+        "title": "Generate Class Component (With Style)"
       }
     ],
     "menus": {
