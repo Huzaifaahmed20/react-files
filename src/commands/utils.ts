@@ -4,8 +4,18 @@ import { existsSync, mkdirSync, readdirSync, writeFile } from "fs";
 import { getClassComponentTemplate, getComponentTemplate } from "../templates";
 import { join } from 'path';
 
+
+export const getStyleImport = (styleType: string | undefined) => {
+    if (styleType === 'less' || styleType === 'scss') {
+        return `import styles from "./styles.${styleType}";`;
+    } else {
+        return `import './style.css'`;
+    }
+};
+
 export const promptStyleOptions = async (): Promise<string | undefined> => {
-    const styleType = await window.showQuickPick(['css', 'less', 'scss'], { canPickMany: false });
+    const styleOptions = ['css', 'less', 'scss'];
+    const styleType = await window.showQuickPick(styleOptions, { canPickMany: false });
     return styleType;
 };
 

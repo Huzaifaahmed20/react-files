@@ -10,7 +10,8 @@ export const newComponent = async (uri: Uri, type: string, withCSS: boolean) => 
     if (isValidDirectory) {
         await runCreationProcess(targetDirectory, type, withCSS);
     } else {
-        window.showErrorMessage('Make sure you right click on component, pages or screens directory');
+        window.showErrorMessage('Make sure you right click on components, pages or screens directory');
+        return;
     }
 };
 
@@ -23,8 +24,9 @@ const runCreationProcess = async (targetDirectory: string, type: string, withCSS
     }
     if (withCSS) {
         styleType = await promptStyleOptions();
-        if (_.isNil(styleType)) {
+        if (_.isNil(styleType) || styleType === undefined) {
             window.showErrorMessage('Please select style file type');
+            return;
         }
     }
     await generateComponentCode(componentName, targetDirectory, type, withCSS, styleType);
