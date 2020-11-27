@@ -1,7 +1,7 @@
-export const getClassComponentTemplate = (componentName: string, withCSS: boolean): string => {
+export const getClassComponentTemplate = (componentName: string, withCSS: boolean, styleType: string | undefined): string => {
 
     return `import React, { Component } from 'react';
-${withCSS ? "import './style.css';" : ""}
+${withCSS ? `import './style.${styleType}';` : ""}
 
 class ${componentName} extends Component {
     render() {

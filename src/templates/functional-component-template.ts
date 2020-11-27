@@ -1,7 +1,7 @@
-export const getComponentTemplate = (componentName: string, withCSS: boolean): string => {
+export const getComponentTemplate = (componentName: string, withCSS: boolean, styleType: string | undefined): string => {
 
 	return `import React from 'react';
-${withCSS ? "import './style.css';" : ""}
+${withCSS ? `import './style.${styleType}';` : ""}
 
 export const ${componentName} = (props) => {
 	return (

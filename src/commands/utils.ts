@@ -39,7 +39,7 @@ export const generateComponentCode = async (componentName: string, targetDirecto
     }
 
 
-    await writeCompFile(targetPath, type, componentName, withCSS);
+    await writeCompFile(targetPath, type, componentName, withCSS, styleType);
     window.showTextDocument(Uri.file(targetPath));
 };
 
@@ -61,11 +61,11 @@ const writeCSSFile = (path: string): Promise<void> => {
     });
 };
 
-const writeCompFile = (path: string, type: string, componentName: string, withCSS: boolean): Promise<void> => {
+const writeCompFile = (path: string, type: string, componentName: string, withCSS: boolean, styleType: string | undefined): Promise<void> => {
     return new Promise(async (resolve, reject) => {
         writeFile(
             path,
-            type === 'class' ? getClassComponentTemplate(componentName, withCSS) : getComponentTemplate(componentName, withCSS),
+            type === 'class' ? getClassComponentTemplate(componentName, withCSS, styleType) : getComponentTemplate(componentName, withCSS, styleType),
             "utf8",
             (error) => {
                 if (error) {
