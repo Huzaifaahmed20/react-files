@@ -4,9 +4,9 @@ import { existsSync, mkdirSync, readdirSync, writeFile } from "fs";
 import { getClassComponentTemplate, getComponentTemplate } from "../templates";
 import { join } from 'path';
 
-export const newComponent = async (uri: Uri, type: string) => {
+export const newComponent = async (uri: Uri, type: string, withCSS: boolean) => {
     const targetDirectory = uri.fsPath;
-    const isComponents = targetDirectory.endsWith('components') || targetDirectory.endsWith('component');
+    const isComponents = targetDirectory.endsWith('components');
     const isPages = targetDirectory.endsWith('pages') || targetDirectory.endsWith('screens');
     const isValidDirectory = isComponents || isPages;
 
@@ -16,9 +16,9 @@ export const newComponent = async (uri: Uri, type: string) => {
             window.showErrorMessage("The component name must not be empty");
             return;
         }
-        await generateComponentCode(componentName, targetDirectory, type, uri);
+        await generateComponentCode(componentName, targetDirectory, type, withCSS);
     } else {
-        window.showErrorMessage('Make sure you right click on component directory');
+        window.showErrorMessage('Make sure you right click on component, pages or screens directory');
     }
 
 
@@ -35,7 +35,7 @@ function promptForComponentName(): Thenable<string | undefined> {
     return window.showInputBox(componentNameOptions);
 }
 
-const generateComponentCode = async (componentName: string, targetDirectory: string, type: string, uri: Uri) => {
+const generateComponentCode = async (componentName: string, targetDirectory: string, type: string, withCSS: boolean) => {
     const componentDirectoryPath = `${targetDirectory}/${componentName}`;
     const rootOfProject = join(componentDirectoryPath, '../../../');
     const projectFiles = readdirSync(rootOfProject);
@@ -49,18 +49,39 @@ const generateComponentCode = async (componentName: string, targetDirectory: str
         window.showErrorMessage('Component already exist');
     }
 
+    if (withCSS) {
+        const targetPathCSS = `${componentDirectoryPath}/style.css`;
+        await writeCSSFile(targetPathCSS);
+    }
 
-    await writeCompFile(targetPath, type, componentName);
+
+    await writeCompFile(targetPath, type, componentName, withCSS);
     window.showTextDocument(Uri.file(targetPath));
 };
 
 
-
-function writeCompFile(path: string, type: string, componentName: string) {
+function writeCSSFile(path: string) {
     return new Promise(async (resolve, reject) => {
         writeFile(
             path,
-            type === 'class' ? getClassComponentTemplate(componentName) : getComponentTemplate(componentName),
+            "",
+            "utf8",
+            (error) => {
+                if (error) {
+                    reject(error);
+                    return;
+                }
+                resolve();
+            }
+        );
+    });
+}
+
+function writeCompFile(path: string, type: string, componentName: string, withCSS: boolean) {
+    return new Promise(async (resolve, reject) => {
+        writeFile(
+            path,
+            type === 'class' ? getClassComponentTemplate(componentName, withCSS) : getComponentTemplate(componentName, withCSS),
             "utf8",
             (error) => {
                 if (error) {

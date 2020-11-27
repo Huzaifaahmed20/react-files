@@ -37,6 +37,14 @@
       {
         "command": "react-files.genClassComp",
         "title": "Generate Class Component"
+      },
+      {
+        "command": "react-files.genFuncCompCSS",
+        "title": "Generate Functional Component (With CSS)"
+      },
+      {
+        "command": "react-files.genClassCompCSS",
+        "title": "Generate Class Component (With CSS)"
       }
     ],
     "menus": {
@@ -48,6 +56,16 @@
         },
         {
           "command": "react-files.genClassComp",
+          "group": "1_modification",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "react-files.genFuncCompCSS",
+          "group": "1_modification",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "react-files.genClassCompCSS",
           "group": "1_modification",
           "when": "explorerResourceIsFolder"
         }
