@@ -11,7 +11,7 @@ export const ${componentName} = (props) => {
 		<div>
 			<h1>${componentName}</h1>
 		</div>
-	)
+	);
 }
 `;
 };

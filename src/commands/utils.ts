@@ -9,7 +9,7 @@ export const getStyleImport = (styleType: string | undefined) => {
     if (styleType === 'less' || styleType === 'scss') {
         return `import styles from "./styles.${styleType}";`;
     } else {
-        return `import './style.css'`;
+        return `import './style.${styleType}';`;
     }
 };
 

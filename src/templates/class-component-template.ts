@@ -11,7 +11,7 @@ class ${componentName} extends Component {
 		    <div>
 			    <h1>${componentName}</h1>
 		    </div>
-        )
+        );
     }
 }
 export default ${componentName};
