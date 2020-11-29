@@ -9,15 +9,14 @@
 
 ## Demo
 
-![Demo](https://github.com/Huzaifaahmed20/react-files/blob/master/assets/react-file-demo.mkv?raw=true)
+![Demo](https://github.com/Huzaifaahmed20/react-files/blob/master/assets/react-file-demo-new.gif?raw=true)
 
 ## What's New (0.1.0)
 
-- Extension will create file & component according to language environment with JS or TS
+- Newly created component will open in editor.
+- Extension will create file & component according to language environment either JS or TS.
 - Generate class components with Style sheet.
 - Generate functional components with Style sheet.
-
-## Screenshots
 
 ## Extension Settings
 
