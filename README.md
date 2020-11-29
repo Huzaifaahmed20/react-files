@@ -4,6 +4,8 @@
 
 - Generate simple class components.
 - Generate simple functional components.
+- Generate simple class components with Style sheet.
+- Generate simple functional components with Style sheet.
 
 ![Banner](https://github.com/Huzaifaahmed20/react-files/blob/master/assets/banner.jpg?raw=true)
 
@@ -11,7 +13,7 @@
 
 ![Demo](https://github.com/Huzaifaahmed20/react-files/blob/master/assets/react-file-demo-new.gif?raw=true)
 
-## What's New (0.1.0)
+## What's New (0.1.0) ✨
 
 - Newly created component will open in editor.
 - Extension will create file & component according to language environment either JS or TS.
