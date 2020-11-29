@@ -7,7 +7,7 @@ import { join } from 'path';
 
 export const getStyleImport = (styleType: string | undefined) => {
     if (styleType === 'less' || styleType === 'scss') {
-        return `import styles from "./styles.${styleType}";`;
+        return `import styles from "./style.${styleType}";`;
     } else {
         return `import './style.${styleType}';`;
     }
