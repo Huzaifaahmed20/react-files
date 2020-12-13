@@ -6,11 +6,7 @@ import { join } from 'path';
 
 
 export const getStyleImport = (styleType: string | undefined) => {
-    if (styleType === 'less' || styleType === 'scss') {
-        return `import styles from "./style.${styleType}";`;
-    } else {
-        return `import './style.${styleType}';`;
-    }
+    return `import './style.${styleType}';`;
 };
 
 export const promptStyleOptions = async (): Promise<string | undefined> => {
